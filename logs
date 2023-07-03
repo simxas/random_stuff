@@ -1,0 +1,63 @@
+strings := []string {
+	"Error: java.lang.NullPointerException at MyClass.main(MyClass.java:25)",
+	"Server successfully started on port 8080",
+	"kubectl get pods: Error from server (Forbidden)",
+	"Info: User with ID: 12345 logged in successfully",
+	"Error: Shell command 'rm -rf /' exited with non-zero status",
+	"Info: Successfully executed SQL query: SELECT * FROM users",
+	"Warning: Database connection pool is near its capacity",
+	"kubeadm join --token=abcdef.0123456789abcdef 192.168.0.2:6443: Command timed out",
+	"Error: java.lang.ClassNotFoundException: com.example.NonExistentClass",
+	"ls -l /home/user: Total 0",
+	"Info: User with ID: 12345 logged out",
+	"Error: Docker build failed: COPY requires at least two arguments",
+	"kubectl describe pod mypod: Pod is in CrashLoopBackOff state",
+	"Warning: High memory utilization (90%)",
+	"scp user@192.168.0.2:/home/user/file.txt . : Connection lost",
+	"Info: Cron job 'daily-backup' executed successfully",
+	"Error: mvn clean install: Build failure",
+	"df -h: /dev/sda1 is 100% full",
+	"Info: File 'log.txt' was successfully deleted",
+	"Error: java.lang.OutOfMemoryError: Java heap space",
+	"ssh user@192.168.0.2: Connection refused",
+	"Info: Successfully pulled Docker image 'myimage:latest'",
+	"kubectl get nodes: No resources found",
+	"Warning: SSL certificate for 'www.example.com' has expired",
+	"Error: Failed to write to file 'output.txt'",
+	"Info: Successfully connected to database 'mydb'",
+	"kubectl apply -f mypod.yaml: Error from server (Invalid)",
+	"Warning: Possible SQL injection attempt detected",
+	"Error: java.lang.IllegalArgumentException: n must be positive",
+	"cat /etc/passwd: Permission denied",
+	"Info: New order placed, order ID: 54321",
+	"Error: npm install exited with code 1",
+	"kubectl config use-context mycontext: Switched to context 'mycontext'",
+	"Warning: Disk I/O is 100%, performance may be degraded",
+	"Error: Unable to open file 'nonexistentfile.txt'",
+	"Info: Successfully updated user profile, user ID: 12345",
+	"curl -I http://www.example.com: Could not resolve host: www.example.com",
+	"Warning: Failed to send email to 'user@example.com'",
+	"Error: java.sql.SQLException: Connection reset",
+	"docker run -d -p 8080:80 myimage: Command executed successfully",
+	"Info: Backup completed at 2023-06-28 12:34:56",
+	"Error: Python script exited with error: ImportError: No module named requests",
+	"kubectl delete pod mypod: pod 'mypod' deleted",
+	"Warning: CPU utilization is 95%, performance may be degraded",
+	"Error: Failed to connect to MySQL server at 'localhost:3306'",
+	"Info: Successfully created new file 'newfile.txt'",
+	"git pull: Already up to date.",
+	"Warning: User 'guest' attempted to access restricted resource"
+}
+
+
+func printRandomStringEvery(strings []string, duration time.Duration) {
+	rand.Seed(time.Now().UnixNano()) // Seed the random number generator.
+	for {
+		index := rand.Intn(len(strings)) // Get a random index.
+		fmt.Println(strings[index])      // Print the string at the random index.
+		time.Sleep(duration)
+	}
+}
+
+
+go printRandomStringEvery(strings, 5*time.Second)
