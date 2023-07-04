@@ -39,7 +39,10 @@ func main() {
 	})
 
 	// Keep the program running to capture events
-	robotgo.EventLoop()
+	robotgo.EventProcess()
+
+	// Wait for program termination
+	<-robotgo.EventProcessExited()
 }
 
 // Helper function to remove a key from the slice
